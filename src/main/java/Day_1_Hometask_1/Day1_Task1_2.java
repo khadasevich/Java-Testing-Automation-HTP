@@ -2,7 +2,7 @@ package Day_1_Hometask_1;
 
 import java.util.Scanner;
 
-public class Day_1_Task1_2 {
+public class Day1_Task1_2 {
 
     public static void main(String[] args) {
 //        While looping from 0 to 25, return each value with space concatenated
