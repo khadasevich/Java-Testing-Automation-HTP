@@ -6,7 +6,7 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-public class Day_1_Task1_6 {
+public class Day1_Task1_6 {
 
     public static void main(String[] args) {
 //  Make List From array filter and sort it
