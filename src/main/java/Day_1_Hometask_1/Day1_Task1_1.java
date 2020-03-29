@@ -1,6 +1,6 @@
 package Day_1_Hometask_1;
 
-public class Day_1_Task1_1 {
+public class Day1_Task1_1 {
 
     public static void main(String[] args) {
 //        Difference between ++i and i++: both operations perform incrementation of number on 1 but
