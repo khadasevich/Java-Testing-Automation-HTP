@@ -3,7 +3,7 @@ package Day_1_Hometask_1;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Day_1_Task1_4 {
+public class Day1_Task1_4 {
 
     public static void main(String[] args) {
 //        replace items in the array
