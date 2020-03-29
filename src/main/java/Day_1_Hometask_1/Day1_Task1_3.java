@@ -2,7 +2,7 @@ package Day_1_Hometask_1;
 
 import java.util.Scanner;
 
-public class Day_1_Task1_3 {
+public class Day1_Task1_3 {
 
     public static void main(String[] args) {
 //        for looping from 0 to 20, return even numbers that are > 10
