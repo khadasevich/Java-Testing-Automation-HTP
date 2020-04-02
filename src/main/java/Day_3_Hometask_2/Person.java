@@ -5,13 +5,12 @@ public class Person extends Human {
     private String name;
     private String surName;
 
-    public void setNames(String name, String surName)
-    {
+    public void setNames(String name, String surName) {
         this.name = name;
         this.surName = surName;
     }
 
-    public void nameSurname () {
+    public void nameSurname() {
         System.out.println("My Name is " + name + ". My surname is " + surName);
     }
 }
