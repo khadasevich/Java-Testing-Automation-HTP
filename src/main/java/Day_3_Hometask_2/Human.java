@@ -4,8 +4,7 @@ public class Human {
 
     private double age;
 
-    public void setAge(double age)
-    {
+    public void setAge(double age) {
         this.age = age;
     }
 
