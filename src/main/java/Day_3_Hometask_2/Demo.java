@@ -1,6 +1,17 @@
 package Day_3_Hometask_2;
 
 public class Demo {
+//    Comments. Implement interface for ability of user to create code and testing
+//    Implement interface for speaking
+//    Add default method in speaker (default method allows to not add abstract class to implement interface)
+//    Add super to constructors to ancestors
+//    Envelope methods, to make any calculations
+//
+//
+//
+//
+//
+//
     public static void main(String[] args) {
         ManualEngineer toster = new ManualEngineer();
         toster.setNames("Aliaksei", "Khadasevich");
