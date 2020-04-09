@@ -1,4 +1,4 @@
-package Day_1_Hometask_1;
+package day1hometask1;
 
 public class Day1_Task1_1 {
 

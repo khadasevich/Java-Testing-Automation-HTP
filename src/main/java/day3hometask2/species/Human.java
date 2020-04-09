@@ -1,4 +1,4 @@
-package Day_3_Hometask_2;
+package day3hometask2.species;
 
 public class Human {
 
@@ -6,6 +6,10 @@ public class Human {
 
     public void setAge(double age) {
         this.age = age;
+    }
+
+    public double getAge() {
+        return this.age;
     }
 
     public void voice() {

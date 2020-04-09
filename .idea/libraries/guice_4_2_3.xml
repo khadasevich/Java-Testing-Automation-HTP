@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="guice-4.2.3">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/src/main/java/Day_4_Class/TestNG/guice-4.2.3.jar!/" />
-      <root url="jar://$PROJECT_DIR$/src/main/java/Day_4_Class/TestNG/jcommander-1.27.jar!/" />
-      <root url="jar://$PROJECT_DIR$/src/main/java/Day_4_Class/TestNG/testng-7.1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/main/java/day4class/TestNG/guice-4.2.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/main/java/day4class/TestNG/jcommander-1.27.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/main/java/day4class/TestNG/testng-7.1.0.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
