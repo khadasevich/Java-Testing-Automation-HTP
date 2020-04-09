@@ -34,4 +34,8 @@ public abstract class Test implements Function {
         return Result.PASSED;
     }
 
+    public int getComplexity() {
+        return this.complexity;
+    }
+
 }

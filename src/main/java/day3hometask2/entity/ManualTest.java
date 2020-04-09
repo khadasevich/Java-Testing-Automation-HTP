@@ -7,4 +7,8 @@ public class ManualTest extends Test {
         super(complexity);
         this.instability = 3;
     }
+
+    public int getInstability() {
+        return this.instability;
+    }
 }

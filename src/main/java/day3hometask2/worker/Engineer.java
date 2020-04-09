@@ -25,4 +25,8 @@ public abstract class Engineer extends Person {
     public int getAnxiety() {
         return this.anxiety;
     }
+
+    public int getSkill() {
+        return this.skill;
+    }
 }
