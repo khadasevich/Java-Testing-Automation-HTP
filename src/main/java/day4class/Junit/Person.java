@@ -1,4 +1,4 @@
-package Day_4_Class.TestNG;
+package day4class.Junit;
 
 public class Person {
 

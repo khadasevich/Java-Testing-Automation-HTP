@@ -1,4 +1,4 @@
-package Day_4_Class.Junit;
+package day4class.Junit;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 

@@ -1,6 +1,6 @@
-package Day_4_Class.TestNG;
+package day4class.TestNG;
 
-import Day_4_Class.Junit.Person;
+import day4class.Junit.Person;
 import org.testng.annotations.*;
 import org.testng.AssertJUnit;
 

@@ -1,4 +1,4 @@
-package Day_4_Class;
+package day4class;
 
 public class Day4 {
 //    jUnit, TestNG
