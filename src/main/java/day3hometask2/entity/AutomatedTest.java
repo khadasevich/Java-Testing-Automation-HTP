@@ -7,4 +7,8 @@ public class AutomatedTest extends Test {
         super(complexity);
         int instability = 4;
     }
+
+    public int getInstability() {
+        return this.instability;
+    }
 }

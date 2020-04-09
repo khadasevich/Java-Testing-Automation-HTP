@@ -12,6 +12,7 @@ public class Demo {
         TestEngineer toster = new TestEngineer();
         toster.setNames("Aliaksei", "Khadasevich");
         toster.setAge(29.5);
+        System.out.println(toster.getAnxiety());
         ManualTest guiTest = new ManualTest(TestLevel.GUI);
         System.out.println(toster.executeTest(guiTest));
     }
