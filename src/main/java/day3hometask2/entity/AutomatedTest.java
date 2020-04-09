@@ -5,6 +5,6 @@ public class AutomatedTest extends Test {
 
     public AutomatedTest(TestLevel complexity) {
         super(complexity);
-        int instability = 1;
+        int instability = 4;
     }
 }

@@ -5,6 +5,6 @@ public class ManualTest extends Test {
 
     public ManualTest(TestLevel complexity) {
         super(complexity);
-        this.instability = 2;
+        this.instability = 3;
     }
 }
