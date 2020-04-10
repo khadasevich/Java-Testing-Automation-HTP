@@ -10,11 +10,11 @@ public class Person extends Human {
         this.surName = surName;
     }
 
-    private String getFirstName() {
+    public String getFirstName() {
         return this.name;
     }
 
-    private String getLastName() {
+    public String getLastName() {
         return this.surName;
     }
 
