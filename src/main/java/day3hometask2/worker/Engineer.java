@@ -13,7 +13,6 @@ public abstract class Engineer extends Person {
 
     private Random rn = new Random();
 
-    private int anxiety = 3;
     private int skill = rn.nextInt(10) + 1;
 
     public Result executeTest(Test test) {
@@ -21,7 +20,7 @@ public abstract class Engineer extends Person {
     }
 
     public int getAnxiety() {
-        return this.anxiety;
+        return 3;
     }
 
     public int getSkill() {
