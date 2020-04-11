@@ -4,27 +4,22 @@ import day3hometask2.worker.AutomationEngineer;
 import day3hometask2.worker.Engineer;
 import day3hometask2.worker.TestEngineer;
 
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-
-public abstract class Test implements Function {
+public abstract class Test implements Function<Engineer, Result> {
     private int complexity;
 
     Test(TestLevel complexity) {
         this.complexity = complexity.COMPLEXITY;
     }
 
+    protected abstract int getInstability();
+
     @Override
-    public Result apply(Engineer engineer) throws ClassNotFoundException, IllegalAccessException, NoSuchFieldException,
-            InstantiationException, NoSuchMethodException, InvocationTargetException {
-        Class cls = Class.forName(getClass().getName());
-        Object instanceOfTest = getClass().getDeclaredConstructor(TestLevel.class).newInstance(TestLevel.GUI);
+    public Result apply(Engineer engineer) {
         int anxiety = 1;
-        Field newField = getClass().getField("instability");
-        int instability = (int) newField.get(instanceOfTest);
-        if (engineer instanceof TestEngineer && instanceOfTest instanceof AutomatedTest) {
+        int instability = this.getInstability();
+        if (engineer instanceof TestEngineer && this instanceof AutomatedTest) {
             anxiety = engineer.getAnxiety();
-        } else if (engineer instanceof AutomationEngineer && instanceOfTest instanceof ManualTest) {
+        } else if (engineer instanceof AutomationEngineer && this instanceof ManualTest) {
             anxiety = engineer.getAnxiety();
         }
         int result = anxiety * instability * complexity;
