@@ -6,6 +6,7 @@ import day3hometask2.worker.TestEngineer;
 
 public abstract class Test implements Function<Engineer, Result> {
     private int complexity;
+    private int anxiety = 1;
 
     Test(TestLevel complexity) {
         this.complexity = complexity.COMPLEXITY;
@@ -15,7 +16,6 @@ public abstract class Test implements Function<Engineer, Result> {
 
     @Override
     public Result apply(Engineer engineer) {
-        int anxiety = 1;
         int instability = this.getInstability();
         if (engineer instanceof TestEngineer && this instanceof AutomatedTest) {
             anxiety = engineer.getAnxiety();
