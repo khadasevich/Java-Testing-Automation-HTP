@@ -1,13 +1,14 @@
 package day3hometask2.entity;
 
 public class AutomatedTest extends Test {
-    public int instability;
+    private int instability;
 
-    public AutomatedTest(TestLevel complexity) {
+    public AutomatedTest(TestLevel complexity, int instability) {
         super(complexity);
-        int instability = 4;
+        this.instability = instability;
     }
 
+    @Override
     public int getInstability() {
         return this.instability;
     }

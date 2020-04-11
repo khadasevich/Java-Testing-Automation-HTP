@@ -1,12 +1,6 @@
 package day3hometask2.entity;
 
-import day3hometask2.worker.Engineer;
+public interface Function<Engineer, Result> {
 
-import java.lang.reflect.InvocationTargetException;
-
-public interface Function {
-
-    Result apply(Engineer engineer) throws ClassNotFoundException, IllegalAccessException, InstantiationException,
-            NoSuchFieldException, NoSuchMethodException, InvocationTargetException;
-
+    Result apply(Engineer engineer);
 }

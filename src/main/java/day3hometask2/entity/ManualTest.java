@@ -1,13 +1,14 @@
 package day3hometask2.entity;
 
 public class ManualTest extends Test {
-    public int instability;
+    private int instability;
 
-    public ManualTest(TestLevel complexity) {
+    public ManualTest(TestLevel complexity, int instability) {
         super(complexity);
-        this.instability = 3;
+        this.instability = instability;
     }
 
+    @Override
     public int getInstability() {
         return this.instability;
     }
