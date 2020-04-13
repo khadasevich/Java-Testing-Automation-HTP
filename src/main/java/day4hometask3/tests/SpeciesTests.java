@@ -2,28 +2,30 @@ package day4hometask3.tests;
 
 import day3hometask2.species.Human;
 import org.junit.Test;
+
 import static org.junit.Assert.assertEquals;
+
 import day3hometask2.species.Person;
 
 public class SpeciesTests {
     @Test
-    public void personNameTest(){
+    public void personNameTest() {
         Person person = new Person();
         person.setNames("Alex", "Khadasevich");
-        assertEquals("Person's name is not expected!", person.getFirstName(), "Alex");
+        assertEquals("Person's name is not expected!", "Alex", person.getFirstName());
     }
 
     @Test
-    public void personSurnameTest(){
+    public void personSurnameTest() {
         Person person = new Person();
         person.setNames("Alex", "Khadasevich");
-        assertEquals("Person's surname is not expected!", person.getLastName(), "Khadasevich");
+        assertEquals("Person's surname is not expected!", "Khadasevich", person.getLastName());
     }
 
     @Test
-    public void humanAgeTest(){
+    public void humanAgeTest() {
         Human human = new Human();
         human.setAge(29);
-        assertEquals("Human's age is not expected!",29, human.getAge(), 0);
+        assertEquals("Human's age is not expected!", 29, human.getAge(), 0);
     }
 }

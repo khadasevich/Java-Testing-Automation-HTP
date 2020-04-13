@@ -17,31 +17,31 @@ public class EntityTests {
     @Test
     public void testInstability() {
         ManualTest manualTest = new ManualTest(TestLevel.API, 4);
-        assertEquals("Instability of test is not expected!", manualTest.getInstability(), 4);
+        assertEquals("Instability of test is not expected!", 4, manualTest.getInstability());
     }
 
     @Test
     public void testComplexity() {
         AutomatedTest automatedTest = new AutomatedTest(TestLevel.UNIT, 4);
-        assertEquals("Complexity of test is not expected!", automatedTest.getComplexity(), 1);
+        assertEquals("Complexity of test is not expected!", 1, automatedTest.getComplexity());
     }
 
     @Test
     public void unitComplexityTest() {
         int unitComplexity = TestLevel.UNIT.COMPLEXITY;
-        assertEquals("Complexity is not expected!", unitComplexity, 1);
+        assertEquals("Complexity is not expected!", 1, unitComplexity);
     }
 
     @Test
     public void apiComplexityTest() {
         int apiComplexity = TestLevel.API.COMPLEXITY;
-        assertEquals("Complexity is not expected!", apiComplexity, 3);
+        assertEquals("Complexity is not expected!", 3, apiComplexity);
     }
 
     @Test
     public void guiComplexityTest() {
         int guiComplexity = TestLevel.GUI.COMPLEXITY;
-        assertEquals("Complexity is not expected!", guiComplexity, 9);
+        assertEquals("Complexity is not expected!", 9, guiComplexity);
     }
 
     @Test
@@ -52,7 +52,7 @@ public class EntityTests {
         Field anxiety = manualTest.getClass().getSuperclass().getDeclaredField("anxiety");
         anxiety.setAccessible(true);
         int valueOfAnxiety = (int) anxiety.get(manualTest);
-        assertEquals("Anxiety is not expected!", valueOfAnxiety, 1);
+        assertEquals("Anxiety is not expected!", 1, valueOfAnxiety);
     }
 
     @Test
@@ -63,7 +63,7 @@ public class EntityTests {
         Field anxiety = manualTest.getClass().getSuperclass().getDeclaredField("anxiety");
         anxiety.setAccessible(true);
         int valueOfAnxiety = (int) anxiety.get(manualTest);
-        assertEquals("Anxiety is not expected!", valueOfAnxiety, 3);
+        assertEquals("Anxiety is not expected!", 3, valueOfAnxiety);
     }
 
     @Test
@@ -74,7 +74,7 @@ public class EntityTests {
         Field anxiety = automatedTest.getClass().getSuperclass().getDeclaredField("anxiety");
         anxiety.setAccessible(true);
         int valueOfAnxiety = (int) anxiety.get(automatedTest);
-        assertEquals("Anxiety is not expected!", valueOfAnxiety, 3);
+        assertEquals("Anxiety is not expected!", 3, valueOfAnxiety);
     }
 
     @Test

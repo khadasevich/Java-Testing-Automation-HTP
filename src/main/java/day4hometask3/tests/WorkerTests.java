@@ -11,7 +11,7 @@ public class WorkerTests {
     @Test
     public void engineerAnxietyTest() {
         Engineer engineer = new TestEngineer();
-        assertEquals("Engineer's anxiety is not expected!", engineer.getAnxiety(), 3);
+        assertEquals("Engineer's anxiety is not expected!", 3, engineer.getAnxiety());
     }
 
     @Test
