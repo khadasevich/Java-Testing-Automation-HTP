@@ -28,20 +28,17 @@ public class EntityTests {
 
     @Test
     public void unitComplexityTest() {
-        int unitComplexity = TestLevel.UNIT.COMPLEXITY;
-        assertEquals("Complexity is not expected!", 1, unitComplexity);
+        assertEquals("Complexity is not expected!", 1, TestLevel.UNIT.COMPLEXITY);
     }
 
     @Test
     public void apiComplexityTest() {
-        int apiComplexity = TestLevel.API.COMPLEXITY;
-        assertEquals("Complexity is not expected!", 3, apiComplexity);
+        assertEquals("Complexity is not expected!", 3, TestLevel.API.COMPLEXITY);
     }
 
     @Test
     public void guiComplexityTest() {
-        int guiComplexity = TestLevel.GUI.COMPLEXITY;
-        assertEquals("Complexity is not expected!", 9, guiComplexity);
+        assertEquals("Complexity is not expected!", 9, TestLevel.GUI.COMPLEXITY);
     }
 
     @Test
