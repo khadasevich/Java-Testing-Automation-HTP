@@ -10,7 +10,7 @@ public class Demo {
         AutomationEngineer toster = new AutomationEngineer();
         toster.setNames("Aliaksei", "Khadasevich");
         toster.setAge(29.5);
-        ManualTest guiTest = new ManualTest(TestLevel.GUI, 9);
+        ManualTest guiTest = new ManualTest(TestLevel.GUI, 0);
         System.out.println(toster.executeTest(guiTest));
     }
 }
