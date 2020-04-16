@@ -75,18 +75,47 @@ public class EntityTests {
     }
 
     @Test
-    public void passResultTest() {
+    public void manEngineerManTest() {
         ManualTest manualTest = new ManualTest(TestLevel.UNIT, 4);
         Engineer manualEngineer = new TestEngineer();
         Result resultOfTest = manualEngineer.executeTest(manualTest);
-        assertEquals("Result is not expected!", resultOfTest, Result.PASSED);
+        assertEquals("Result is not expected!", Result.PASSED, resultOfTest);
     }
 
     @Test
-    public void failResultTest() {
-        ManualTest manualTest = new ManualTest(TestLevel.GUI, 4);
-        Engineer manualEngineer = new TestEngineer();
-        Result resultOfTest = manualEngineer.executeTest(manualTest);
-        assertEquals("Result is not expected!", resultOfTest, Result.FAILED);
+    public void autoEngineerAutoTest() {
+        AutomatedTest autoTest = new AutomatedTest(TestLevel.GUI, 10);
+        Engineer autoEngineer = new AutomationEngineer();
+        Result resultOfTest = autoEngineer.executeTest(autoTest);
+        assertEquals("Result is not expected!", Result.PASSED, resultOfTest);
+    }
+
+    @Test
+    public void failResultTest() throws NoSuchFieldException, IllegalAccessException {
+        AutomatedTest autoTest = new AutomatedTest(TestLevel.GUI, 10);
+        Engineer manEngineer = new TestEngineer();
+        Field anxiety = autoTest.getClass().getSuperclass().getDeclaredField("anxiety");
+        anxiety.setAccessible(true);
+        anxiety.set(autoTest, 100);
+        Result resultOfTest = manEngineer.executeTest(autoTest);
+        assertEquals("Result is not expected!", Result.FAILED, resultOfTest);
+    }
+
+    @Test
+    public void zeroInstability() {
+        AutomatedTest autoTest = new AutomatedTest(TestLevel.GUI, 0);
+        assertEquals("Instability is not expected!", 0, autoTest.getInstability());
+    }
+
+    @Test
+    public void standInstability() {
+        AutomatedTest autoTest = new AutomatedTest(TestLevel.GUI, 1);
+        assertEquals("Instability is not expected!", 1, autoTest.getInstability());
+    }
+
+    @Test
+    public void maxInstability() {
+        AutomatedTest autoTest = new AutomatedTest(TestLevel.GUI, 11);
+        assertEquals("Instability is not expected!", 10, autoTest.getInstability());
     }
 }
