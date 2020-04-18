@@ -4,12 +4,12 @@ import day3hometask2.worker.AutomationEngineer;
 import day3hometask2.worker.Engineer;
 import day3hometask2.worker.TestEngineer;
 
-public abstract class Test implements Function<Engineer, Result> {
+public abstract class BaseTest implements Function<Engineer, Result> {
     private final int complexity;
     private int anxiety = 1;
     private final int instability;
 
-    Test(TestLevel complexity, int instability) {
+    BaseTest(TestLevel complexity, int instability) {
         this.complexity = complexity.COMPLEXITY;
         if (instability <= 0) {
             this.instability = 0;
