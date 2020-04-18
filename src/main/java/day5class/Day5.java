@@ -33,6 +33,7 @@ public class Day5 {
 //    scope teg in dependency POM sets when library will be used (<scope>test</scope> - library will be used  when mvn test)
 //    build in POM alloes to set order of building and add plugins
 //    <repositories> allows to set which repository local, central or company will be used
+//    xc
 
 
 
