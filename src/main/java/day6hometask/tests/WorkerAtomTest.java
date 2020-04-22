@@ -1,4 +1,4 @@
-package day5class.test;
+package day6hometask.tests;
 
 import day3hometask2.worker.AutomationEngineer;
 import day3hometask2.worker.Engineer;
