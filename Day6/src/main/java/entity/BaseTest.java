@@ -1,8 +1,9 @@
 package entity;
 
-import day3hometask2.worker.AutomationEngineer;
-import day3hometask2.worker.Engineer;
-import day3hometask2.worker.TestEngineer;
+
+import worker.AutomationEngineer;
+import worker.Engineer;
+import worker.TestEngineer;
 
 public abstract class BaseTest implements Function<Engineer, Result> {
     private final int complexity;

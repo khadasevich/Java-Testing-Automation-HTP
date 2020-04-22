@@ -1,11 +1,11 @@
 package tests;
 
-import day3hometask2.worker.AutomationEngineer;
-import day3hometask2.worker.Engineer;
-import day3hometask2.worker.TestEngineer;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
+import worker.AutomationEngineer;
+import worker.Engineer;
+import worker.TestEngineer;
 
 import java.util.Arrays;
 import java.util.Collection;

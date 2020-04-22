@@ -1,8 +1,9 @@
 package worker;
 
-import day3hometask2.entity.BaseTest;
-import day3hometask2.entity.Result;
-import day3hometask2.species.Person;
+
+import entity.BaseTest;
+import entity.Result;
+import species.Person;
 
 import java.util.Random;
 
