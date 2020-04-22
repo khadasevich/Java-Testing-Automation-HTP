@@ -7,6 +7,7 @@ import org.junit.runners.Parameterized;
 import worker.AutomationEngineer;
 import worker.Engineer;
 import worker.TestEngineer;
+import entity.BaseTest;
 
 import java.util.Arrays;
 import java.util.Collection;
