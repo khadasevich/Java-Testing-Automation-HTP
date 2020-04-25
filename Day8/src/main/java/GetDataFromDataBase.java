@@ -3,7 +3,6 @@ import tables.Category;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Properties;
 
 public class GetDataFromDataBase {
 
@@ -35,6 +34,7 @@ public class GetDataFromDataBase {
         if (rs.next()) {
             System.out.println(rs.getString(1));
         }
+        statement.close();
     }
 
     private static void execPreparedStatement(Connection connection, String query, int id) throws SQLException {
@@ -64,10 +64,10 @@ public class GetDataFromDataBase {
                     rs.getString(3)));
         }
 
-        for (Category cat: categories) {
+        for (Category cat : categories) {
             System.out.println(cat.toString());
-
         }
+        statement.close();
     }
 
 
