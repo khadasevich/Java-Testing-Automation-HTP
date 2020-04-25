@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Day8/Day8.iml" filepath="$PROJECT_DIR$/Day8/Day8.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Day8/Day8.iml" filepath="$PROJECT_DIR$/Day8/Day8.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Java-Testing-Automation-HTP.iml" filepath="$PROJECT_DIR$/.idea/Java-Testing-Automation-HTP.iml" />
     </modules>
   </component>
