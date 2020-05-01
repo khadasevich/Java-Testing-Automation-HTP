@@ -51,13 +51,13 @@ public class GetDataFromDataBase {
     }
 
     private static void printUsers(ResultSet rs) throws SQLException {
-        List<User> categories = new ArrayList<>();
+        List<User> users = new ArrayList<>();
         while (rs.next()) {
-            categories.add(new User(rs.getInt(1),
+            users.add(new User(rs.getInt(1),
                     rs.getString(2),
                     rs.getString(3)));
         }
-        for (User user : categories) {
+        for (User user : users) {
             System.out.println(user.toString());
         }
     }
