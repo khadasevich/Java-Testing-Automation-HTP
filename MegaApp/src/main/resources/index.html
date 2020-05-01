@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+
+    <title>Main page</title>
+
+    <script>
+        var globalVar;
+        function hideValue(x) {
+            globalVar=x.value
+            x.value = "";
+        }
+        function setValue(x) {
+            x.value=globalVar;
+        }
+    </script>
+
+    <style type="text/css">
+        html { text-align: center }
+        input {
+        background: url(images/background.jpg) no-repeat;
+        background-position: center;
+        background-size: 400px 110px;
+        border: transparent
+        font-weight: bold;
+        font-size: 200%;
+        cursor: pointer;
+        }
+        input:hover {
+        background: url("images/background_alter.jpg") no-repeat;
+        }
+        h1 { font-size: 500%;
+         font-family: "Century Gothic" sans-serif; }
+        p { font-size: 12pt
+         font-family"Comic Sans MS" sans-serif;
+        color: grey;}
+    </style>
+</head>
+<body>
+    <h1>Welcome</h1>
+    <form action="/about.html" method="get">
+        <input id=about type="submit" value="About Us" onmouseover="hideValue(this)" onmouseout="setValue(this)">
+    </form>
+    <br>
+    <form action="/app/index.php" method="get">
+        <input id=regis type="submit" value="Check Registration" onmouseover="hideValue(this)" onmouseout="setValue(this)">
+    </form>
+    <br>
+    <form action="/media.html" method="get">
+        <input id=media type="submit" value="Get Media" onmouseover="hideValue(this)" onmouseout="setValue(this)">
+    </form>
+    <br>
+    <br>
+    <p>This is just a dummy site (c)</p>
+</body>
+</html>
