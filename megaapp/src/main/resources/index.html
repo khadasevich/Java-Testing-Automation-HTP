@@ -21,16 +21,23 @@
     <style type="text/css">
         html { text-align: center }
         input {
-        background: url(images/background.jpg) no-repeat;
-        background-position: center;
-        background-size: 400px 110px;
-        border: transparent
+        cursor: pointer;
         font-weight: bold;
         font-size: 200%;
-        cursor: pointer;
+        width:400px;
+        height:110px;
+        background-position: center;
+        background-size: 400px 110px;
         }
+        .default{
+        background-image: url("images/background.jpg");
+        }
+        .blue {
+        background-color: #0000FF;}
+        .green {
+        background-color: #87b400;}
         input:hover {
-        background: url("images/background_alter.jpg") no-repeat;
+        background-image: url("images/background_alter.jpg");
         }
         h1 { font-size: 500%;
          font-family: "Century Gothic" sans-serif; }
@@ -42,15 +49,15 @@
 <body>
     <h1>Welcome</h1>
     <form action="/about.html" method="get">
-        <input id=about type="submit" value="About Us" onmouseover="hideValue(this)" onmouseout="setValue(this)">
+        <input class="default" id=about type="submit" value="About Us" onmouseover="hideValue(this)" onmouseout="setValue(this)">
     </form>
     <br>
     <form action="/app/index.php" method="get">
-        <input id=regis type="submit" value="Check Registration" onmouseover="hideValue(this)" onmouseout="setValue(this)">
+        <input class="blue" id=regis type="submit" value="Check Registration" onmouseover="hideValue(this)" onmouseout="setValue(this)">
     </form>
     <br>
     <form action="/media.html" method="get">
-        <input id=media type="submit" value="Get Media" onmouseover="hideValue(this)" onmouseout="setValue(this)">
+        <input class="green" id=media type="submit" value="Get Media" onmouseover="hideValue(this)" onmouseout="setValue(this)">
     </form>
     <br>
     <br>
