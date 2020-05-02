@@ -10,7 +10,8 @@ public class CreateConnection {
     Properties prop;
 
     public CreateConnection() throws SQLException {
-        this.prop = PropertiesParser.getProperties();
+        String path = "database.properties";
+        this.prop = PropertiesParser.getProperties(path);
         this.connection = PropertiesParser.getDataSource(prop).getConnection();
     }
 

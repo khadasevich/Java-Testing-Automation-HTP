@@ -1,4 +1,5 @@
 import databasesetup.CreateConnection;
+import databasesetup.PropertiesParser;
 import statements.PrepStatement;
 import statements.SimpleStatement;
 import tables.User;
@@ -8,6 +9,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 
 public class GetDataFromDataBase {
 
@@ -15,20 +17,12 @@ public class GetDataFromDataBase {
         CreateConnection connectionCreator = new CreateConnection();
         Connection connection = connectionCreator.createConnection();
         SimpleStatement simpleStatement = new SimpleStatement(connection);
-        String selectFromUsers = "SELECT * FROM users;";
-        String dropTable = "DROP TABLE users;";
-        String createTable = "CREATE TABLE IF NOT EXISTS `users` (\n" +
-                "  `user_id` int(11) NOT NULL AUTO_INCREMENT,\n" +
-                "  `user_login` varchar(255) NOT NULL,\n" +
-                "  `user_password` varchar(40) NOT NULL,\n" +
-                "  PRIMARY KEY (`user_id`)\n" +
-                ");";
-        String insertUsers = "INSERT INTO `users` (`user_login`, `user_password`) " +
-                "VALUES (?, ?);";
-        simpleStatement.executeUpdateStatement(dropTable);
-        simpleStatement.executeUpdateStatement(createTable);
-        PrepStatement prepStatement = new PrepStatement(connection, insertUsers);
+        Properties prop = PropertiesParser.getProperties("queries.properties");
         Map<String, String> users = CreateUserCredentials.getListOfUsers(10);
+
+        simpleStatement.executeUpdateStatement(prop.getProperty("DROP"));
+        simpleStatement.executeUpdateStatement(prop.getProperty("CREATE"));
+        PrepStatement prepStatement = new PrepStatement(connection, prop.getProperty("INSERT"));
         users.forEach((k, v) -> {
             try {
                 prepStatement.executeUpdateStatement(k, v);
@@ -37,17 +31,11 @@ public class GetDataFromDataBase {
             }
         });
 
-        ResultSet rs = simpleStatement.executeStatement(selectFromUsers);
+        ResultSet rs = simpleStatement.executeStatement(prop.getProperty("SELECT"));
         printUsers(rs);
         prepStatement.closeStatement();
         simpleStatement.closeStatement();
         connectionCreator.closeConnection();
-    }
-
-    private static void printSingleResult(ResultSet rs) throws SQLException {
-        if (rs.next()) {
-            System.out.println(rs.getString(1));
-        }
     }
 
     private static void printUsers(ResultSet rs) throws SQLException {

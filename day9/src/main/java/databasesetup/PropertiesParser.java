@@ -10,9 +10,9 @@ import java.util.Properties;
 
 public class PropertiesParser {
 
-    public static Properties getProperties() {
+    public static Properties getProperties(String path) {
         File file = new File((Objects.requireNonNull(PropertiesParser.class.getClassLoader()
-                .getResource("database.properties"))).getFile());
+                .getResource(path))).getFile());
         Properties properties = new Properties();
         try (FileInputStream input = new FileInputStream(file)) {
             properties.load(input);
@@ -20,7 +20,6 @@ public class PropertiesParser {
             ex.printStackTrace();
         }
         return properties;
-
     }
 
     public static MysqlDataSource getDataSource(Properties prop) {
