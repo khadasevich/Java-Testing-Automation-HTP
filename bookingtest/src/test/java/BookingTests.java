@@ -14,7 +14,6 @@ public class BookingTests {
 
     protected WebDriver driver;
     private static final String BOOKING_URL = "https://www.booking.com/";
-    private static final String cityOne = "Paris";
     BookingMainPage bookingMainPage;
 
     @Before
@@ -24,17 +23,32 @@ public class BookingTests {
         System.setProperty("webdriver.chrome.silentOutput", "true");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         bookingMainPage = new BookingMainPage(driver);
     }
 
     @Test
-    public void lowestPriceSortingTest() {
+    public void parisTest() {
         bookingMainPage.openMainPage(BOOKING_URL);
-        bookingMainPage.goToSearchResultsWebDriver(cityOne, 2, 4, 3, 10);
-        int expected = bookingMainPage.getExpectedSortingPrice();
-        int actual = bookingMainPage.getActualSortingPrice();
-        Assert.assertTrue(expected > actual || expected == actual);
+        bookingMainPage.goToSearchResultsWebDriver("Paris", 2, 0, 4, 3, 10);
+        int expected = bookingMainPage.getExpectedMaxFilterPrice();
+        int actual = bookingMainPage.getActualMinSortingPrice(7);
+        Assert.assertTrue(expected < actual || expected == actual);
+    }
+
+    @Test
+    public void moscowTest() {
+        bookingMainPage.openMainPage(BOOKING_URL);
+        bookingMainPage.goToElementBuilder("Moscow", 2, 0, 4, 10, 15);
+        int expected = bookingMainPage.getExpectedMinFilterPrice();
+        int actual = bookingMainPage.getActualTopElementPrice(5);
+        Assert.assertTrue(expected > actual);
+    }
+
+    @Test
+    public void osloTest() {
+        bookingMainPage.openMainPage(BOOKING_URL);
+        bookingMainPage.goToSearchResultsWebDriver("Oslo", 1, 2, 2, 1, 2);
     }
 
     @After
