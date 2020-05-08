@@ -1,19 +1,24 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import utils.GenerateDate;
+
+import static utils.BookingUtilities.*;
+
 
 public class BookingMainPage extends BookingAbstract {
 
     protected Actions builder;
 
-    WebDriverWait wait = new WebDriverWait(driver,5);
+    WebDriverWait wait = new WebDriverWait(driver, 10);
+
+    JavascriptExecutor javascriptExecutor = (JavascriptExecutor) driver;
 
     @FindBy(xpath = "//*[@id='ss']")
     private WebElement searchField;
@@ -64,11 +69,20 @@ public class BookingMainPage extends BookingAbstract {
     private WebElement topElement;
 
     @FindBy(xpath = "(//*[@id='hotellist_inner']//div[@class='sr_rooms_table_block clearfix '])" +
-            "[1]//descendant::div[@class='bui-price-display__value prco-inline-block-maker-helper']")
+            "[10]//descendant::div[@class='bui-price-display__value prco-inline-block-maker-helper']")
     private WebElement tenElement;
 
     @FindBy(xpath = "//*[@id='b2searchresultsPage']/div[20]")
     private WebElement overlay;
+
+    @FindBy(xpath = "//*[@id='filter_class']//descendant::span[contains(., '3 stars')]")
+    private WebElement threeStars;
+
+    @FindBy(xpath = "//*[@id='filter_class']//descendant::span[contains(., '4 stars')]")
+    private WebElement fourStars;
+
+    @FindBy(xpath = "(//*[@id='hotellist_inner']//a[@class='hotel_name_link url'])[10]//span[@data-et-click]")
+    private WebElement address;
 
 
     public BookingMainPage(WebDriver driver) {
@@ -85,9 +99,9 @@ public class BookingMainPage extends BookingAbstract {
         searchField.click();
         searchField.sendKeys(city);
         checkInList.click();
-        WebElement startDate = driver.findElement(By.xpath(GenerateDate.generateDateXpath(startFrom)));
+        WebElement startDate = driver.findElement(By.xpath(generateDateXpath(startFrom)));
         startDate.click();
-        WebElement endDate = driver.findElement(By.xpath(GenerateDate.generateDateXpath(endingDate)));
+        WebElement endDate = driver.findElement(By.xpath(generateDateXpath(endingDate)));
         endDate.click();
         adultsList.click();
         String quan;
@@ -105,8 +119,8 @@ public class BookingMainPage extends BookingAbstract {
 
     public void goToElementBuilder(String city, int rooms, int children, int adults,
                                    int startFrom, int endingDate) {
-        WebElement startDate = driver.findElement(By.xpath(GenerateDate.generateDateXpath(startFrom)));
-        WebElement endDate = driver.findElement(By.xpath(GenerateDate.generateDateXpath(endingDate)));
+        WebElement startDate = driver.findElement(By.xpath(generateDateXpath(startFrom)));
+        WebElement endDate = driver.findElement(By.xpath(generateDateXpath(endingDate)));
         builder.moveToElement(searchField)
                 .click()
                 .sendKeys(city)
@@ -133,32 +147,52 @@ public class BookingMainPage extends BookingAbstract {
         builder.moveToElement(searchButton).click().build().perform();
     }
 
-    public int getExpectedMaxFilterPrice() {
-        String price = maxPrice.getText();
+    public int getMaxFilterPrice() {
         maxPrice.click();
-        return getPriceForNight(price, 1);
+        return getPriceForNight(maxPrice, 1);
+    }
+
+    public int getMinFilterPrice() {
+        minPrice.click();
+        return getPriceForNight(minPrice, 1);
+    }
+
+    public void filterHotelsByStars() throws InterruptedException {
+        threeStars.click();
+        fourStars.click();
+        wait.until(ExpectedConditions.invisibilityOf(overlay));
+        java.util.concurrent.TimeUnit.SECONDS.sleep(5);
+        scrollPageDown(address);
+        java.util.concurrent.TimeUnit.SECONDS.sleep(5);
+        changeHotelBackground();
+        java.util.concurrent.TimeUnit.SECONDS.sleep(5);
+        changeHotelNameColor();
+        java.util.concurrent.TimeUnit.SECONDS.sleep(5);
+    }
+
+    void scrollPageDown(WebElement element) {
+        javascriptExecutor.executeScript("arguments[0].scrollIntoView();" +
+                "window.scrollBy(0,-100);", element);
+    }
+
+    void changeHotelBackground() {
+        javascriptExecutor.executeScript("" +
+                "document.querySelector('#hotellist_inner > div:nth-child(11)').style.backgroundColor = 'red';");
+    }
+
+    void changeHotelNameColor() {
+        javascriptExecutor.executeScript(
+                "document.querySelector('#hotellist_inner > div:nth-child(11) > div.sr_item_content.sr_item_content_slider_wrapper > div.sr_property_block_main_row > div.sr_item_main_block > div.sr-hotel__title-wrap > h3 > a > span.sr-hotel__name').style.backgroundColor = 'red';");
     }
 
     public int getActualMinSortingPrice(int interval) {
         sortPrice.click();
         wait.until(ExpectedConditions.invisibilityOf(overlay));
-        String price = topElement.getText();
-        return getPriceForNight(price, interval);
-    }
-
-    public int getExpectedMinFilterPrice() {
-        String price = minPrice.getText();
-        minPrice.click();
-        return getPriceForNight(price, 1);
+        return getPriceForNight(topElement, interval);
     }
 
     public int getActualTopElementPrice(int interval) {
         wait.until(ExpectedConditions.invisibilityOf(overlay));
-        String price = topElement.getText();
-        return getPriceForNight(price, interval);
-    }
-
-    int getPriceForNight(String cost, int interval) {
-        return Integer.parseInt(cost.replaceAll("[^\\d.]", "")) / interval;
+        return getPriceForNight(topElement, interval);
     }
 }

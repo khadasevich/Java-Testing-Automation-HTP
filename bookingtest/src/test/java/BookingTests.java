@@ -31,7 +31,7 @@ public class BookingTests {
     public void parisTest() {
         bookingMainPage.openMainPage(BOOKING_URL);
         bookingMainPage.goToSearchResultsWebDriver("Paris", 2, 0, 4, 3, 10);
-        int expected = bookingMainPage.getExpectedMaxFilterPrice();
+        int expected = bookingMainPage.getMaxFilterPrice();
         int actual = bookingMainPage.getActualMinSortingPrice(7);
         Assert.assertTrue(expected < actual || expected == actual);
     }
@@ -40,15 +40,16 @@ public class BookingTests {
     public void moscowTest() {
         bookingMainPage.openMainPage(BOOKING_URL);
         bookingMainPage.goToElementBuilder("Moscow", 2, 0, 4, 10, 15);
-        int expected = bookingMainPage.getExpectedMinFilterPrice();
+        int expected = bookingMainPage.getMinFilterPrice();
         int actual = bookingMainPage.getActualTopElementPrice(5);
         Assert.assertTrue(expected > actual);
     }
 
     @Test
-    public void osloTest() {
+    public void osloTest() throws InterruptedException {
         bookingMainPage.openMainPage(BOOKING_URL);
         bookingMainPage.goToSearchResultsWebDriver("Oslo", 1, 2, 2, 1, 2);
+        bookingMainPage.filterHotelsByStars();
     }
 
     @After
