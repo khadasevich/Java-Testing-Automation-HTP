@@ -50,6 +50,8 @@ public class BookingTests {
         bookingMainPage.openMainPage(BOOKING_URL);
         bookingMainPage.goToSearchResultsWebDriver("Oslo", 1, 2, 2, 1, 2);
         bookingMainPage.filterHotelsByStars();
+        String expected = "rgba(255, 0, 0, 1)";
+        assertEquals("Color isn't red", expected, bookingMainPage.getColorOfAddress());
     }
 
     @After
