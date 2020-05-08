@@ -20,6 +20,7 @@ public class SeleniumTest {
         System.setProperty("webdriver.chrome.driver", pathToDriver);
         System.setProperty("webdriver.chrome.silentOutput", "true");
         WebDriver driver = new ChromeDriver();
+
         String baseUrl = "http://demo.guru99.com/test/newtours/";
         String expectedTitle = "Welcome: Mercury Tours";
         String actualTitle = "";
