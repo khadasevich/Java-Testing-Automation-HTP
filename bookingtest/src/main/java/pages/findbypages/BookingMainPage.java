@@ -1,4 +1,4 @@
-package pages;
+package pages.findbypages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -12,7 +12,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import static utils.BookingUtilities.*;
 
 
-public class BookingMainPage extends BookingAbstract {
+public class BookingMainPage extends BookingAbstractPage {
 
     protected Actions builder;
 

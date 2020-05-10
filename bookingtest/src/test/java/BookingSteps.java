@@ -1,16 +1,14 @@
+import createdriver.Driver;
 import org.junit.Assert;
-import pages.BookingMainPage;
+import pages.findbypages.BookingMainPage;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-
-import java.util.concurrent.TimeUnit;
 
 import static org.junit.Assert.assertEquals;
 
-public class BookingTests {
+public class BookingSteps {
 
     protected WebDriver driver;
     private static final String BOOKING_URL = "https://www.booking.com/";
@@ -18,12 +16,9 @@ public class BookingTests {
 
     @Before
     public void startBrowser() {
-        String pathToDriver = BookingTests.class.getClassLoader().getResource("chromedriver.exe").getPath();
-        System.setProperty("webdriver.chrome.driver", pathToDriver);
-        System.setProperty("webdriver.chrome.silentOutput", "true");
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver = Driver.getWebdriver();
+        Driver.setTiemout();
+        Driver.maximize();
         bookingMainPage = new BookingMainPage(driver);
     }
 
@@ -56,7 +51,6 @@ public class BookingTests {
 
     @After
     public void stopBrowser() {
-        driver.close();
-        driver.quit();
+        Driver.closeDriver();
     }
 }
